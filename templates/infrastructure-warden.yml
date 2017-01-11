@@ -30,8 +30,8 @@ networks:
 - name: mariadb1
   type: manual
   subnets:
-  - range: 10.244.250.0/24
+  - range: 10.244.34.0/24
     name: mariadb1
-    gateway: 10.244.250.1
+    gateway: 10.244.34.1
     static:
-      - 10.244.250.2 - 10.244.250.60
+      - 10.244.34.2 - 10.244.34.60

@@ -1,5 +1,7 @@
 ---
 meta:
+  size: default
+  password: blacksmith-rocks
   environment: (( param "Please specify your environment" ))
   stemcell: (( param "Please configure a BOSH stemcell to use for your deployment" ))
 
@@ -7,7 +9,7 @@ name: (( grab meta.environment ))
 
 director_uuid: (( param "Please set the UUID of your BOSH Directory" ))
 
-releases: (( param "Please list the BOSH releases to use for this deployment" ))
+releases: { name: mariadb, version: latest }
 
 instance_groups: (( param "Please configure the constituent instance groups for this Deployment" ))
 

@@ -7,14 +7,14 @@ update:
   serial: false
 
 instance_groups:
-  - name: just_install_packages
+  - name: mariadb
     jobs:
-    - name: just_install_packages
+    - name: mariadb
       release: mariadb
     instances: 1
     persistent_disk: 0
     resource_pool: small_z1
-    networks: (( param "Please configure the networks for this job" ))
+    networks: mariadb
 
 networks: (( param "Please configure the global network definitions for this Deployment" ))
 

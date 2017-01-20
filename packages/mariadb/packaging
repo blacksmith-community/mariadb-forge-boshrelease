@@ -1,0 +1,14 @@
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# $BOSH_COMPILE_TARGET - where this package & spec'd source files are available
+# $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
+export HOME=/var/vcap
+
+tar -xvf mariadb/mariadb-10.1.20-linux-x86_64.tar.gz
+for x in scripts bin lib share; do
+  mkdir -p ${BOSH_INSTALL_TARGET}/${x}
+  cp -a mariadb-10.1.20-linux-x86_64/${x}/* ${BOSH_INSTALL_TARGET}/${x}
+done
+chmod 0755 ${BOSH_INSTALL_TARGET}/bin/*
+chmod 0755 ${BOSH_INSTALL_TARGET}/scripts/*

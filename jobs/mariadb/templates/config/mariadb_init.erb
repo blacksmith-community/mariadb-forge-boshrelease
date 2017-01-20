@@ -1,0 +1,5 @@
+CREATE USER IF NOT EXISTS '<%= p('db.admin_username') %>'@'%' IDENTIFIED BY '<%= p('db.admin_password') %>';
+GRANT ALL PRIVILEGES ON *.* TO '<%= p('db.admin_username') %>'@'%' WITH GRANT OPTION;
+UPDATE mysql.user SET Password=PASSWORD('<%= p('db.admin_password') %>') WHERE User='<%= p('db.admin_username') %>';
+
+FLUSH PRIVILEGES;

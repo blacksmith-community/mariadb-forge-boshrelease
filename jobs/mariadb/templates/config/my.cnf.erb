@@ -1,0 +1,6 @@
+[mysqld]
+port=<%= p('db.port') %>
+basedir=/var/vcap/packages/mariadb
+datadir=/var/vcap/store/mariadb
+bind-address=0.0.0.0
+init_file=/var/vcap/jobs/mariadb/config/mariadb_init

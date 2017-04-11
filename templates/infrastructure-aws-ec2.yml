@@ -9,7 +9,7 @@ meta:
     version: latest
 
 instance_groups:
-  - name: just_install_packages
+  - name: mariadb
     networks:
       - name: mariadb1
     persistent_disk: (( grab meta.persistent_disk ))

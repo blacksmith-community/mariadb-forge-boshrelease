@@ -1,8 +1,11 @@
 meta:
+  size: default
   admin_password: (( vault $CREDENTIALS "/mariadb/system:password" ))
   admin_username: (( vault $CREDENTIALS "/mariadb/system:username" ))
 
-name: mariadb
+releases:
+  - { name: mariadb-forge, version: latest }
+
 stemcells:
 - alias: default
   os: ubuntu-trusty
@@ -14,23 +17,21 @@ update:
   canary_watch_time: 1000-30000
   update_watch_time: 1000-30000
 
-releases:
-- name: mariadb
-  version: latest
-
 instance_groups:
-- name: mariadb
-  instances: 1
-  azs: [z1]
-  jobs:
-  - name: mariadb
-    release: mariadb
-  properties:
-    db:
-      admin_password: (( grab meta.admin_password ))
-      admin_username: (( grab meta.admin_username ))
-  vm_type: default
-  stemcell: default
-  persistent_disk_type: default
-  networks:
-  - name: default
+  - name: standalone
+    instances: 1
+    azs: [z1]
+    networks:
+      - name: default
+    stemcell: default
+
+    vm_type: (( grab meta.size ))
+    persistent_disk_type: default
+
+    jobs:
+    - name:    standalone
+      release: mariadb-forge
+      properties:
+        db:
+          admin_password: (( grab meta.admin_password ))
+          admin_username: (( grab meta.admin_username ))

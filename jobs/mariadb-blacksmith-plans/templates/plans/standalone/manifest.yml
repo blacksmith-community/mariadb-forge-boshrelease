@@ -1,7 +1,7 @@
 meta:
   size: default
-  admin_password: (( vault $CREDENTIALS "/mariadb/system:password" ))
-  admin_username: (( vault $CREDENTIALS "/mariadb/system:username" ))
+  admin_password: (( vault $CREDENTIALS "/standalone/system:password" ))
+  admin_username: (( vault $CREDENTIALS "/standalone/system:username" ))
 
 releases:
   - { name: mariadb-forge, version: latest }

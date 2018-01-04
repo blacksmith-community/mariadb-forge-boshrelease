@@ -1,5 +1,5 @@
-check process mariadb
-  with pidfile /var/vcap/sys/run/mariadb/mariadb.pid
-  start program "/var/vcap/jobs/mariadb/bin/monit_debugger mariadb_ctl '/var/vcap/jobs/mariadb/bin/ctl start'"
-  stop program "/var/vcap/jobs/mariadb/bin/monit_debugger mariadb_ctl '/var/vcap/jobs/mariadb/bin/ctl stop'"
+check process standalone
+  with pidfile /var/vcap/sys/run/standalone/standalone.pid
+  start program "/var/vcap/jobs/standalone/bin/monit_debugger mariadb_ctl '/var/vcap/jobs/standalone/bin/ctl start'"
+  stop program "/var/vcap/jobs/standalone/bin/monit_debugger mariadb_ctl '/var/vcap/jobs/standalone/bin/ctl stop'"
   group vcap

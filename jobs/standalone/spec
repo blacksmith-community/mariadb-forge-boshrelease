@@ -1,5 +1,5 @@
 ---
-name: mariadb
+name: standalone
 packages:
   - mariadb
 templates:

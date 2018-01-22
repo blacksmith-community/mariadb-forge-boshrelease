@@ -38,6 +38,8 @@ cat > $PLANROOT/params.yml <<EOF
 # for plan-id <%= id %> (<%= plan["name"] || id %>)
 meta:
   size: <%= plan["vm_type"] || 'default' %>
+  net:  <%= plan["network"] || 'mariadb-service' %>
+  disk: <%= plan["disk"]    || 2_048 %>
 EOF
 
 

@@ -21,12 +21,11 @@ instance_groups:
   - name: standalone
     instances: 1
     azs: [z1]
-    networks:
-      - name: default
+    networks: [name: (( grab meta.net || "mariadb-service" ))]
     stemcell: default
 
     vm_type: (( grab meta.size ))
-    persistent_disk_type: default
+    persistent_disk: (( grab meta.disk ))
 
     jobs:
     - name:    standalone

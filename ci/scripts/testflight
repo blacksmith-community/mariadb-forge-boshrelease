@@ -60,6 +60,12 @@ bosh2 -n delete-deployment --force || true
 ######
 ######
 ######
+header "Cleaning out old stemcells / releases from the BOSH director..."
+bosh2 -n cleanup || true
+
+######
+######
+######
 header "Creating candidate BOSH release..."
 bosh2 -n reset-release # in case dev_releases/ is in repo accidentally
 cat > config/private.yml <<YAML

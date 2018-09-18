@@ -61,7 +61,7 @@ bosh2 -n delete-deployment --force || true
 ######
 ######
 header "Cleaning out old stemcells / releases from the BOSH director..."
-bosh2 -n cleanup || true
+bosh2 -n clean-up || true
 
 ######
 ######

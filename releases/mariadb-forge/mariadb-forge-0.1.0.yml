@@ -1,0 +1,23 @@
+name: mariadb-forge
+version: 0.1.0
+commit_hash: 5510b13
+uncommitted_changes: false
+jobs:
+- name: mariadb-blacksmith-plans
+  version: aeefa4bade009c19cad8f0ff2c4a4c6573f33f7c
+  fingerprint: aeefa4bade009c19cad8f0ff2c4a4c6573f33f7c
+  sha1: fb0a0fb15b7310244bfa678483ec2394d56dd815
+- name: standalone
+  version: 92610d49a4249a93001479f1da4d314cf32c8197
+  fingerprint: 92610d49a4249a93001479f1da4d314cf32c8197
+  sha1: 8c10d42b9be48b1bbf94eb846c2e73de1c05f2b0
+packages:
+- name: mariadb
+  version: 147a31a1558b40051cee37895264437de5ba6589
+  fingerprint: 147a31a1558b40051cee37895264437de5ba6589
+  sha1: 0e92790c4c3c301523f9fd405468300fcd76d9c6
+  dependencies: []
+license:
+  version: fc24a259da4ed145bfa70db6bc689b7dfb91673c
+  fingerprint: fc24a259da4ed145bfa70db6bc689b7dfb91673c
+  sha1: 6d9ac9b772ca06bdb6c9c56cbc2f04e3cbd740d0

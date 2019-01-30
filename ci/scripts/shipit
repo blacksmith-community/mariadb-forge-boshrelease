@@ -48,7 +48,7 @@ if [[ $envok != 0 ]]; then
 fi
 
 VERSION=$(cat ${VERSION_FROM})
-if [[ -n "${VERSION}" ]]; then
+if [[ -z "${VERSION}" ]]; then
   echo >&2 "Version file (${VERSION_FROM}) was empty."
   exit 1
 fi
@@ -61,7 +61,7 @@ fi
 ###############################################################
 
 cd ${REPO_ROOT}
-RELEASE_NAME=$(bosh2 int config/final.yml --path /final_name)
+RELEASE_NAME=$(bosh int config/final.yml --path /final_name)
 
 ######
 ######
@@ -80,8 +80,8 @@ YAML
 ######
 ######
 header "Creating final release..."
-bosh2 -n create-release --final --version "${VERSION}"
-bosh2 -n create-release releases/$RELEASE_NAME/$RELEASE_NAME-$VERSION.yml \
+bosh -n create-release --final --version "${VERSION}"
+bosh -n create-release releases/$RELEASE_NAME/$RELEASE_NAME-$VERSION.yml \
               --tarball releases/$RELEASE_NAME/$RELEASE_NAME-$VERSION.tgz
 cd -
 
@@ -123,17 +123,19 @@ if [[ -z $(git config --global user.name) ]]; then
 fi
 
 (cd ${REPO_ROOT}
- for MANIFEST_PATH in manifests/*.yml; do
-   len=$(wc -l $MANIFEST_PATH | awk '{print $1}')
-   head=$(head -n `expr $len - 4` $MANIFEST_PATH)
-   cat > $MANIFEST_PATH <<EOF
+ if [[ -d manifests ]]; then
+   for MANIFEST_PATH in manifests/*.yml; do
+     len=$(wc -l $MANIFEST_PATH | awk '{print $1}')
+     head=$(head -n `expr $len - 4` $MANIFEST_PATH)
+     cat > $MANIFEST_PATH <<EOF
 ${head}
 - name:    $RELEASE_NAME
   version: $VERSION
   url:     https://github.com/${GITHUB_OWNER}/${RELEASE_NAME}-boshrelease/releases/download/v${VERSION}/${RELEASE_NAME}-${VERSION}.tgz
   sha1:    $SHA1
 EOF
- done
+   done
+ fi
  git merge --no-edit ${BRANCH}
  git add -A
  git status

@@ -5,12 +5,6 @@ instance_groups:
   instances: 1
   azs:       [z1]
   vm_type:   default
-  stemcell:  default
-  networks:
-    - name: default
-  jobs:
-    - name: mariadb-blacksmith-plans
-      release: mariadb-forge
       properties:
         plans:
           standalone:

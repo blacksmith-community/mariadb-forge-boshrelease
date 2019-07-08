@@ -1,5 +1,7 @@
 meta:
   size: default
+  default:
+    az: z1
   admin_password: (( vault $CREDENTIALS "/standalone/system:password" ))
   admin_username: (( vault $CREDENTIALS "/standalone/system:username" ))
 
@@ -20,7 +22,7 @@ update:
 instance_groups:
   - name: standalone
     instances: 1
-    azs: [z1]
+    azs: [(( grab meta.az || meta.default.az ))]
     networks: [name: (( grab meta.net || "mariadb-service" ))]
     stemcell: default
 

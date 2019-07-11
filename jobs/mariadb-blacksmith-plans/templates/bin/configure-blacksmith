@@ -40,6 +40,11 @@ meta:
   size: <%= plan["vm_type"] || 'default' %>
   net:  <%= plan["network"] || 'mariadb-service' %>
   disk: <%= plan["disk"]    || 2_048 %>
+
+<% if plan["azs"] %>
+  azs: <%= plan["azs"] %>
+<% end %>
+
 EOF
 
 

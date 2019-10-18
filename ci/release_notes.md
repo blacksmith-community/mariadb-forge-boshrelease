@@ -1,3 +1,7 @@
+# Improvements
+
+- Add uri and jdbcUrl strings to the variabled provided to the app.
+
 # Bug Fixes
 
 - The fix for standalone AZ specification, shipped in the previous

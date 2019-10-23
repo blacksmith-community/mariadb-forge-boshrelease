@@ -1,6 +1,6 @@
 # Improvements
 
-- Create a default DB and add uri and jdbcUrl strings to the VCAP provided to the app.
+- Create a default DB and add uri and jdbcUrl strings to the environment variables provided to the app.
 
 # Bug Fixes
 

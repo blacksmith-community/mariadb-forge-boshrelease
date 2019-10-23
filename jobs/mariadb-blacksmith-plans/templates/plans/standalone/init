@@ -4,6 +4,6 @@ set -eu
 
 safe gen $CREDENTIALS/standalone/system password
 safe gen $CREDENTIALS/standalone/system username
-safe set $CREDENTIALS/standalone/system dbname="mysql"
+safe set $CREDENTIALS/standalone/database name="mysql"
 
 exit 0

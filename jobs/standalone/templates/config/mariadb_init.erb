@@ -1,8 +1,8 @@
 CREATE USER IF NOT EXISTS '<%= p('db.admin_username') %>'@'%' IDENTIFIED BY '<%= p('db.admin_password') %>';
-CREATE USER IF NOT EXISTS 'default_user'@'%' IDENTIFIED BY '<%= p('db.admin_password') %>';
+CREATE USER IF NOT EXISTS '<%= p('db.application_username') %>'@'%' IDENTIFIED BY '<%= p('db.application_password') %>';
 GRANT ALL PRIVILEGES ON *.* TO '<%= p('db.admin_username') %>'@'%' WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON default_db.* TO 'default_user'@'%' WITH GRANT OPTION; 
-CREATE DATABASE default_db;
+GRANT ALL PRIVILEGES ON `<%= p('db.database_name') %>`.* TO '<%= p('db.application_username') %>'@'%' WITH GRANT OPTION;
+CREATE DATABASE IF NOT EXISTS `<%= p('db.database_name') %>`;
 
 UPDATE mysql.user SET Password=PASSWORD('<%= p('db.admin_password') %>') WHERE User='<%= p('db.admin_username') %>';
 

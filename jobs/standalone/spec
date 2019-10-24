@@ -20,3 +20,12 @@ properties:
   db.port:
     description: 'Port for the database'
     default: 3306
+  db.application_username:
+    description: 'Default name for application user'
+    default: default_user
+  db.application_password:
+    description: 'Default pasword for application user'
+    default: admin
+  db.database_name:
+    description: 'Default name for application database'
+    default: default_db

@@ -4,7 +4,8 @@ meta:
     azs: z1
   admin_password: (( vault $CREDENTIALS "/standalone/system:password" ))
   admin_username: (( vault $CREDENTIALS "/standalone/system:username" ))
-  credential_name_field: "service_instance_db"
+  database_name: "default_db"
+  application_username: "default_user"
 
 releases:
   - { name: mariadb-forge, version: latest }
@@ -37,3 +38,6 @@ instance_groups:
         db:
           admin_password: (( grab meta.admin_password ))
           admin_username: (( grab meta.admin_username ))
+          database_name: (( grab meta.database_name ))
+          application_username: (( grab meta.application_username ))
+          application_password: (( grab meta.admin_username ))

@@ -1,0 +1,26 @@
+name: mariadb-forge
+version: 0.3.0
+commit_hash: f8aed3d
+uncommitted_changes: false
+jobs:
+- name: mariadb-blacksmith-plans
+  version: 117fc95e9b2b9f45b5367a50c3082b124bee405ed0d5b795e6f0d3b0f6c54603
+  fingerprint: 117fc95e9b2b9f45b5367a50c3082b124bee405ed0d5b795e6f0d3b0f6c54603
+  sha1: sha256:0e6c9b05910529efc564c803b8e5a663ca4d6a5c3d06d589b3e4a1dbf6274b5a
+  packages: []
+- name: standalone
+  version: ae0b7c99748e0538ca7a7fdcc42b43783cbf95a16c832af42c482d805c4cb81c
+  fingerprint: ae0b7c99748e0538ca7a7fdcc42b43783cbf95a16c832af42c482d805c4cb81c
+  sha1: sha256:cfc6096f91fb8d08c96f1bf5486e4c9496a6ab87d1332aee96a745d7fbe3917c
+  packages:
+  - mariadb
+packages:
+- name: mariadb
+  version: 7135a1a4fd25a608f2ba593cd25c116f7bf856dd058c0cbfff836b52ea356138
+  fingerprint: 7135a1a4fd25a608f2ba593cd25c116f7bf856dd058c0cbfff836b52ea356138
+  sha1: sha256:e9f671bf1b22eb09805eae40c33a92c9e38da12e4f2dfbf4e3398ed2f1b48952
+  dependencies: []
+license:
+  version: bbb5d860163ee53d5e97eadd99fecce8fcaabc50d2c1b81e9459aff6086e620a
+  fingerprint: bbb5d860163ee53d5e97eadd99fecce8fcaabc50d2c1b81e9459aff6086e620a
+  sha1: sha256:e51a393eb08aaf641502c6ab686da5ed666e84f13e7612763cdc137a3d170370

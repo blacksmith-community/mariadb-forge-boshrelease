@@ -5,10 +5,12 @@ set -u # report the usage of uninitialized variables
 # $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
 export HOME=/var/vcap
 
-tar -xvf mariadb/mariadb-10.1.41-linux-x86_64.tar.gz
+export MARIADB="mariadb-10.4.12-linux-x86_64"
+
+tar -xvf mariadb/${MARIADB}.tar.gz
 for x in scripts bin lib share; do
   mkdir -p ${BOSH_INSTALL_TARGET}/${x}
-  cp -a mariadb-10.1.41-linux-x86_64/${x}/* ${BOSH_INSTALL_TARGET}/${x}
+  cp -a ${MARIADB}/${x}/* ${BOSH_INSTALL_TARGET}/${x}
 done
 chmod 0755 ${BOSH_INSTALL_TARGET}/bin/*
 chmod 0755 ${BOSH_INSTALL_TARGET}/scripts/*

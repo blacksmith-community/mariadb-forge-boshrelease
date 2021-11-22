@@ -5,7 +5,7 @@ set -u # report the usage of uninitialized variables
 # $BOSH_INSTALL_TARGET - where you copy/install files to be included in package
 export HOME=/var/vcap
 
-export MARIADB="mariadb-10.4.12-linux-x86_64"
+export MARIADB="mariadb-10.4.22-linux-x86_64"
 
 tar -xvf mariadb/${MARIADB}.tar.gz
 for x in scripts bin lib share; do
